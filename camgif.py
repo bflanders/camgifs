@@ -68,7 +68,7 @@ pils[0].save(gif_file, save_all=True, append_images=pils)
 s3_secret_access_key = '<secret access key>' # NOT A GOOD IDEA
 s3_access_key = '<access key>'
 region = 'us-east-1'
-bucket_name = 'camgifs'
+bucket_name = '<bucket name>'
 
 # Upload to S3
 conn = boto.connect_s3(s3_access_key, s3_secret_access_key)
@@ -86,7 +86,7 @@ client = Client(account_sid, auth_token)
 message = client.messages \
     .create(
          body="cam trigger"
-         ,media_url=[f'https://camgifs.s3.amazonaws.com/{gif_file}']
+         ,media_url=[f'https://{bucket_name}.s3.amazonaws.com/{gif_file}']
          ,from_='+<twilio phone>'
          ,to='+<my phone>'
      )
